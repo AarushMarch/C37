@@ -23,7 +23,7 @@ class Game {
       player = new Player();
       var playerCountRef = await database.ref('playerCount').once('value');
       if(playerCountRef.exists()){
-      playercount = playerCountRef.val();
+      playerCount = playerCountRef.val();
       player.getCount();
       }
       form = new Form()
@@ -33,7 +33,7 @@ class Game {
   }
 
   play(){
-    Form.hide();
+    form.hide();
     textSize(30);
     text("Game start", 120, 100);
     Player.getPlayerInfo();
@@ -53,10 +53,13 @@ class Game {
         textSize(50);
         text(allPlayers[plr].name + ": " +allPlayers[plr].distance, 120, display_position);
       }
+
       if(keyIsDown("UP_ARROW")&& player.index !== null){
+        console.log("Inside");
         player.distance += 50;
         player.update();
       }
+
     }
   }
 }

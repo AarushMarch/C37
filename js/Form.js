@@ -30,7 +30,7 @@ class Form {
       player.update()
       player.updateCount(playerCount);
       
-      this.greeting.html("Hello " + name )
+      this.greeting.html("Hello " + player.name )
       this.greeting.position(130, 160)
     });
 
